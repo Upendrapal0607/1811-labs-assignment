@@ -14,12 +14,13 @@ export const fetchApiAnswer = async (question: String) => {
   });
   try {
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: "user", content: question }],
+      messages: [{ role: "user", content: `${question}` }],
       model: "gpt-3.5-turbo",
     });
 
     return chatCompletion.choices[0].message.content;
   } catch (error) {
-    return error.message;
+    const err = error as any; 
+    return err.message;
   }
 };

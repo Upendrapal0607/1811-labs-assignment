@@ -16,8 +16,8 @@ interface DataType {
 const ChatForm: React.FC = () => {
   const [isLogin, setIsLogin] = useState<boolean>(true);
   const [user, setUser] = useState<any>(null);
-  const [aboutCrush, setAboutCrush] = useState("");
-  const [crushStyle, setCrushStyle] = useState("");
+  const [aboutCrush, setAboutCrush] = useState<any>("");
+  const [crushStyle, setCrushStyle] = useState<any>("");
   const [showTooltip, setShowTooltip] = useState(false);
   const [checkPickup, setCheckPickup] = useState(false);
   const [IsLoading, setIsLoading] = useState(true);
@@ -84,7 +84,7 @@ const ChatForm: React.FC = () => {
     location.href = location.origin + "/login";
   };
 
-  const copyToClipboard = (text) => {
+  const copyToClipboard = (text:string) => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
@@ -99,9 +99,17 @@ const ChatForm: React.FC = () => {
     <div className="w-full min-h-screen text-white m-0 p-0">
       <div className="overlay bg-blur">
         <div className="flex justify-between items-center mt-8 mr-8">
-          <div></div>
-          <div className="text-[red] text-2xl">Pickup line generator</div>
           <div>
+          <button
+       onClick={()=>window.location.assign("/")}
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent font-medium text-sm rounded-full text-[#CD6B83] bg-[#6d6363] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3c3c3c]"
+            >
+              Back to Home
+            </button>
+          </div>
+          <div className="text-[red] text-2xl">Pickup line generator</div>
+          <div className="">
+           
             <button
               onClick={handleLogout}
               onMouseEnter={() => setShowTooltip(true)}
@@ -183,7 +191,7 @@ const ChatForm: React.FC = () => {
             <div>
               <button
                 onClick={HandleGenerateAnswer}
-                disabled={!aboutCrush || !crushStyle || !IsLoading}
+                disabled={!IsLoading}
                 className="flex items-center justify-center px-8 py-4 cursor-pointer w-full my-12 bg-[#ff2157] text-white rounded-full text-xl shadow-lg hover:bg-[#ff4071] transition duration-300"
               >
                 <span>🤍</span>{" "}
