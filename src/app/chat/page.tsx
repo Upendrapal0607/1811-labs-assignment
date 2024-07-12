@@ -13,8 +13,6 @@ const Page = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       const token = getCookie("sb-vxysqlojrtxmdzgxcqda-auth-token.0"); 
-  
-      
       if (token) {
         const { data: { user }, error: userError } = await supabase.auth.getUser();
         if (userError) {

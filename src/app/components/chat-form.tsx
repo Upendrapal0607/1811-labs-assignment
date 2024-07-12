@@ -1,6 +1,6 @@
 "use client";
 import Cookies from "js-cookie";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { supabase } from "../lib/superbase/browser";
 import { fetchApiAnswer, getCookie } from "../lib/utils";
 import { FiCopy } from "react-icons/fi";
@@ -49,7 +49,9 @@ const ChatForm: React.FC = () => {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token-code-verifier"); // Adjust the cookie name as per your setup
+      const token = getCookie("sb-vxysqlojrtxmdzgxcqda-auth-token.0"); // Adjust the cookie name as per your setup
+console.log({token});
+
 
       if (token) {
         const {
@@ -60,6 +62,7 @@ const ChatForm: React.FC = () => {
           console.error("Error getting user:", userError.message);
           return;
         }
+console.log({use});
 
         if (!user) {
           location.href = location.origin + "/login";

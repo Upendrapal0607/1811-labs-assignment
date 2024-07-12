@@ -4,12 +4,11 @@ import { type CookieOptions, createServerClient } from '@supabase/ssr';
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
-  console.log({searchParams, origin });
-  
+
+console.log({searchParams, origin});
+
   const code = searchParams.get('code');
   const next = searchParams.get('next') ?? '/';
-console.log({code});
-
   if (code) {
     const cookieStore = cookies();
     const supabase = createServerClient(
@@ -43,7 +42,7 @@ console.log({code});
     console.error('Code is null. Redirecting to error page.');
   }
 
-  return NextResponse.redirect(`${origin}//auth/auth-code-error`);
+  return NextResponse.redirect(`$${origin}/auth/auth-code-error`);
 }
 
 
