@@ -37,7 +37,7 @@ console.log({code});
       console.error('Error exchanging code for session:', error);
     } else {
       console.log('Successfully exchanged code for session.');
-      return NextResponse.redirect(`https://1811-labs-assignment-nine.vercel.app/chat`);
+      return NextResponse.redirect(`${origin}/chat`);
     }
   } else {
     console.error('Code is null. Redirecting to error page.');
