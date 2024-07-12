@@ -49,7 +49,7 @@ const ChatForm: React.FC = () => {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.1"||"sb-fmisstrelebvlzcuswzg-auth-token.0"); // Adjust the cookie name as per your setup
+      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.0"); // Adjust the cookie name as per your setup
 
       if (token) {
         const {

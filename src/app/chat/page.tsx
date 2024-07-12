@@ -12,7 +12,7 @@ const Page = () => {
   
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.1"||"sb-fmisstrelebvlzcuswzg-auth-token.0"); 
+      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.0"); 
       if (token) {
         const { data: { user }, error: userError } = await supabase.auth.getUser();
         if (userError) {
@@ -38,7 +38,7 @@ else{
     };
 
     fetchUserDetails();
-  }, [window.location]);
+  }, []);
   return (
     <div>
       {!isLogin?<LoginPage/>:<ChatForm />}

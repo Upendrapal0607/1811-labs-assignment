@@ -13,7 +13,7 @@ This is a frontend solo project.
 Check out the live project [here](https://1811-labs-assignment-git-main-upendra-pals-projects.vercel.app/).
 
 ## Video Walkthrough
-Watch the project walkthrough [here](https://drive.google.com/).
+Watch the project walkthrough [here](https://drive.google.com/file/d/1ZtNngP69BCpP6uwnsjqntydnPygCkNu2/view?usp=sharing).
 
 ## Installation & Getting Started
 Follow these detailed instructions to install, configure, and run the project on your local system.
