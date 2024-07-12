@@ -4,10 +4,6 @@ import { type CookieOptions, createServerClient } from '@supabase/ssr';
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
-  console.log({body:request.body});
-  
-  console.log({searchParams,origin});
-  
   const code = searchParams.get('code');
   const next = searchParams.get('next') ?? '/';
   console.log('Code from URL search params:', code);
