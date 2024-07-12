@@ -4,8 +4,11 @@ import { type CookieOptions, createServerClient } from '@supabase/ssr';
 
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
+  console.log({searchParams, origin });
+  
   const code = searchParams.get('code');
   const next = searchParams.get('next') ?? '/';
+console.log({code});
 
   if (code) {
     const cookieStore = cookies();
@@ -29,12 +32,12 @@ export async function GET(request: Request) {
 
     const { error } = await supabase.auth.exchangeCodeForSession(code);
    
-    
     if (error) {
+   
       console.error('Error exchanging code for session:', error);
     } else {
       console.log('Successfully exchanged code for session.');
-      return NextResponse.redirect(`${origin}/chat`);
+      return NextResponse.redirect(`https://1811-labs-assignment-nine.vercel.app/chat`);
     }
   } else {
     console.error('Code is null. Redirecting to error page.');

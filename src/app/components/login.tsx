@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../lib/superbase/browser";
 import { getCookie } from "../lib/utils";
+
 // import { cookies } from 'next/headers';
 interface UserProfile {
   id: string;
@@ -12,6 +13,7 @@ interface UserProfile {
 }
 
 const LoginPage: React.FC = () => {
+  console.log("Location",location.origin,{location})
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
