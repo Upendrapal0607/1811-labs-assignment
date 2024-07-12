@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { getCookie } from "./lib/utils";
 export const App = () => {
   const navigate = useRouter();
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const token = getCookie("sb-vxysqlojrtxmdzgxcqda-auth-token.0"); 
+ 
   const handleLogin = () => {
-    navigate.replace(isLogin ? "/chat" : "/login");
+    navigate.replace(token ? "/chat" : "/login");
   };
 
   return (
