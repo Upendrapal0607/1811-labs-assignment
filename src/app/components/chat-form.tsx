@@ -4,9 +4,6 @@ import React, { useState, useEffect } from "react";
 import { supabase } from "../lib/superbase/browser";
 import { fetchApiAnswer, getCookie } from "../lib/utils";
 import { FiCopy } from "react-icons/fi";
-// import {fetchApiAnswer} from "../api/api"
-
-// import { supabase } from '../lib/supabaseClient';
 
 interface DataType {
   question: string;
@@ -14,7 +11,7 @@ interface DataType {
 }
 
 const ChatForm: React.FC = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(true);
+  const [isLogin, setIsLogin] = useState<boolean>(false);
   const [user, setUser] = useState<any>(null);
   const [aboutCrush, setAboutCrush] = useState<any>("");
   const [crushStyle, setCrushStyle] = useState<any>("");
@@ -52,7 +49,7 @@ const ChatForm: React.FC = () => {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.0"); // Adjust the cookie name as per your setup
+      const token = getCookie("sb-fmisstrelebvlzcuswzg-auth-token.1"||"sb-fmisstrelebvlzcuswzg-auth-token.0"); // Adjust the cookie name as per your setup
 
       if (token) {
         const {
