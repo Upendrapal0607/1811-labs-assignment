@@ -5,6 +5,7 @@ import { getCookie } from "./lib/utils";
 export const App = () => {
   const navigate = useRouter();
   const token = getCookie("sb-vxysqlojrtxmdzgxcqda-auth-token.0"); 
+  // const token = "hello";
  
   const handleLogin = () => {
     navigate.replace(token ? "/chat" : "/login");
