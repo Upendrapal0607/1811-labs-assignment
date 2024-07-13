@@ -43,6 +43,7 @@ else{
   return (
     <div>
       {!isLogin?<LoginPage/>:<ChatForm />}
+   
     </div>
   );
 };

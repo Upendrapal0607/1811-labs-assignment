@@ -87,16 +87,16 @@ const ChatForm: React.FC = () => {
   return (
     <div className="w-full min-h-screen text-white m-0 p-0">
       <div className="overlay bg-blur">
-        <div className="flex justify-between items-center mt-8 mr-8">
+        <div className="flex justify-between items-center mt-8 mr-4 ml-4">
           <div>
           <button
        onClick={()=>window.location.assign("/")}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent font-medium text-sm rounded-full text-[#CD6B83] bg-[#6d6363] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3c3c3c]"
+              className="group relative w-[100px] flex justify-center py-2 px-4 border border-transparent font-medium text-sm rounded-full text-[#CD6B83] bg-[#6d6363] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3c3c3c]"
             >
-              Back to Home
+             Home
             </button>
           </div>
-          <div className="text-[red] text-2xl">Pickup line generator</div>
+          <div className="text-[red] text-center md:text-2xl text-xl">Pickup line generator</div>
           <div className="">
            
             <button

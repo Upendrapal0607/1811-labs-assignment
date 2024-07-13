@@ -9,6 +9,7 @@ export const App = () => {
  
   const handleLogin = () => {
     navigate.replace(token ? "/chat" : "/login");
+    
   };
 
   return (
