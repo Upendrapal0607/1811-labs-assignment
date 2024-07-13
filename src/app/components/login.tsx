@@ -2,18 +2,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { supabase } from "../lib/superbase/browser";
-import { getCookie } from "../lib/utils";
-
-interface UserProfile {
-  id: string;
-  full_name: string;
-  email: string;
-  avatar_url: string;
-}
 
 const LoginPage: React.FC = () => {
-console.log({Origin:location.origin,location});
-
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -58,16 +48,10 @@ console.log({Origin:location.origin,location});
             Sign up with Google
           </button>
           <button
-            onClick={()=>window.location.assign("/")}
+            onClick={()=>location.assign("/")}
             className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-full text-[#3c3c3c] bg-[#fafafa] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3c3c3c]"
           >
-            {/* <span className="absolute left-0 inset-y-0 flex items-center pl-24">
-              <img
-                src="/Image/google-icon.png"
-                alt="Google Icon"
-                className="w-5 h-5 mr-2"
-              />
-            </span> */}
+          
            Back to Home
           </button>
         </div>

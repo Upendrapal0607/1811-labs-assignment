@@ -5,13 +5,8 @@ import { supabase } from "../lib/superbase/browser";
 import { fetchApiAnswer, getCookie } from "../lib/utils";
 import { FiCopy } from "react-icons/fi";
 
-interface DataType {
-  question: string;
-  answer: string;
-}
 
 const ChatForm: React.FC = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(false);
   const [user, setUser] = useState<any>(null);
   const [aboutCrush, setAboutCrush] = useState<any>("");
   const [crushStyle, setCrushStyle] = useState<any>("");
@@ -50,9 +45,6 @@ const ChatForm: React.FC = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       const token = getCookie("sb-vxysqlojrtxmdzgxcqda-auth-token.0"); // Adjust the cookie name as per your setup
-console.log({token});
-
-
       if (token) {
         const {
           data: { user },
@@ -62,14 +54,11 @@ console.log({token});
           console.error("Error getting user:", userError.message);
           return;
         }
-console.log({use});
-
         if (!user) {
-          location.href = location.origin + "/login";
+        location.assign("/login");
         } else {
           const { aud, email } = user;
           if (aud) {
-            setIsLogin(true);
             setUser(email);
           }
         }
@@ -81,7 +70,7 @@ console.log({use});
 
   const handleLogout = () => {
     Cookies.remove("sb-vxysqlojrtxmdzgxcqda-auth-token.0");
-    location.href = location.origin + "/login";
+    location.assign("/login");
   };
 
   const copyToClipboard = (text:string) => {
